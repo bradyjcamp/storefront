@@ -1,12 +1,18 @@
 import './App.css';
-import CandidateList from './component/candidateList/CandidateList';
+import CategoriesList from './component/Categories/Categories';
+import ProductList from './component/Products/Products'
+import Header from './component/Header.js';
+import Footer from './component/Footer.js';
 
 
 function App() {
   return (
     <div className="App">
+    <Header />
 
-    <CandidateList />
+    <CategoriesList />
+    <ProductList />
+    <Footer />
     </div>
 
   );
