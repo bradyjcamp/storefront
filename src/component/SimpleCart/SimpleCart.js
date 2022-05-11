@@ -1,6 +1,30 @@
-//displays short list (title only) of products in the cart
-//should be present at all times in header
-//when user clicks add to cart button - add item to cart
-//display a running list of items in the cart
-//change (0) indicator in header to display how many items in cart
-//reduce the number of items in cart
+import { connect } from 'react-redux';
+// import cartReducer, { addToCart, removeFromCart } from '../../store/cart';
+
+
+function CartList({ cart }){
+  return(
+    <>
+    {cart[0] ?
+      cart.map(item => (
+        <div>
+          <p>{item.name}</p> 
+          <p>Price: ${item.price}</p>
+        </div>
+  
+      ))
+      :
+      <p></p>
+    }
+    </>
+  )
+}
+
+
+const mapStateToProps = ({ cart  }) => {
+  return{
+    cart: cart.cart
+  }
+}
+
+export default connect(mapStateToProps)(CartList)

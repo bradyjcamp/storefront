@@ -1,5 +1,6 @@
 import reducer, { changeProducts } from '../store/products';
 import { legacy_createStore as createStore } from 'redux'; 
+import { addToCart } from '../store/cart';
 
 
 
@@ -23,4 +24,15 @@ describe('Testing redux store for storefront', () => {
     expect(state.selectedProducts).toBeTruthy();
     expect(state.selectedProducts[0].category).toBe('clothing');
   });
+
+  // test('should decrement inventory', () => {
+  //   let state = store.getState();
+  
+  //   let product = state[0]
+
+  //   store.dispatch(addToCart(product))
+
+  //   state = store.getState();
+  //   expect(state[0].inventory).tobe(10);
+  // });
 });

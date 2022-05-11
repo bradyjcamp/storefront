@@ -9,13 +9,13 @@ function cartReducer(state = initialState, action){
   switch(action.type){
     case 'ADD_TO_CART':
       return{
-        ...state,
+        // ...state, do I need this??
         cart: [...state.cart, action.payload],
         itemCounter: state.itemCounter + 1
       };
     case 'REMOVE_FROM_CART':
       return{
-        ...state,
+        // ...state, do I need this??
         cart: state.cart.filter(item => item !== action.payload),
         
         itemCounter: state.itemCounter - 1
