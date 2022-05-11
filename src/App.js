@@ -1,17 +1,14 @@
 import './App.css';
-import CategoriesList from './component/Categories/Categories';
-import ProductList from './component/Products/Products'
-import Header from './component/Header.js';
-import Footer from './component/Footer.js';
-// import CartList from './component/SimpleCart/SimpleCart'
+import CategoriesList from './components/Categories/Categories';
+import ProductList from './components/Products/Products'
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 
 
 function App() {
   return (
     <div className="App">
     <Header />
-    {/* <CartList /> */}
-
     <CategoriesList />
     <ProductList />
     <Footer />

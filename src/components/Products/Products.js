@@ -10,7 +10,7 @@ import { addToCart, removeFromCart } from '../../store/cart'
 function ProductList({ itemCounter, selectedProducts, addToCart, removeFromCart }){
 
   // console.log(products);
-  // console.log(selectedProducts);
+  console.log(selectedProducts);
 
   return(
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id="products">
