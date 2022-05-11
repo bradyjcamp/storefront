@@ -18,7 +18,7 @@ describe('Testing redux store for storefront', () => {
     store.dispatch(changeProducts('clothing'));
 
     const state = store.getState();
-    console.log(state);
+    // console.log(state);
 
     expect(state.selectedProducts).toBeTruthy();
     expect(state.selectedProducts[0].category).toBe('clothing');

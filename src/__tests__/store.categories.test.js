@@ -9,7 +9,7 @@ describe('Testing redux store for storefront', () => {
   test('Reducer should return some initial state', () => {
     const state = store.getState();
   
-    console.log(state);
+    // console.log(state);
     expect(state.activeCategory).toBeFalsy();
     expect(state.activeCategory).toBe('');
   });
