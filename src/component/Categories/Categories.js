@@ -10,7 +10,7 @@ import { changeCategory } from '../../store/categories.js';
 
 function CategoriesList({ activeCategory, categories, changeCategory}) {
 
-  console.log(activeCategory);
+  // console.log(activeCategory);
   // console.log(categories);
 
   return(

@@ -75,11 +75,5 @@ export const changeProducts = (category) => {
   };
 };
 
-// export const decrementInventory = (product) => {
-//   return{
-//     type: 'ADD_TO_CART',
-//     payload: product,
-//   }
-// }
 
 export default productReducer;

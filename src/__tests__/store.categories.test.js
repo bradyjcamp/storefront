@@ -1,6 +1,5 @@
-import reducer, { changeProducts } from '../store/products';
+import reducer, { changeCategory } from '../store/categories.js';
 import { legacy_createStore as createStore } from 'redux'; 
-
 
 
 describe('Testing redux store for storefront', () => {
@@ -11,16 +10,15 @@ describe('Testing redux store for storefront', () => {
     const state = store.getState();
   
     // console.log(state);
-    expect(state.selectedProducts).toMatchObject([]);
+    expect(state.activeCategory).toBeFalsy();
+    expect(state.activeCategory).toBe('');
   });
   
   test('select category action should activate a category', () => {
-    store.dispatch(changeProducts('clothing'));
+    store.dispatch(changeCategory('test'));
 
     const state = store.getState();
-    console.log(state);
 
-    expect(state.selectedProducts).toBeTruthy();
-    expect(state.selectedProducts[0].category).toBe('clothing');
+    expect(state.activeCategory).toBe('test');
   });
 });

@@ -1,15 +1,21 @@
+import React from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartList from './SimpleCart/SimpleCart'
 
 
-const handleClick = () => {
-
-    console.log('Hello')
-
-}
 const Header = ({ cart, itemCounter }) => {
+  
+  const [showCart, setShowCart] = useState(false);
+  
+  const handleClick = () => {
+  
+    setShowCart(!showCart)
+  
+  }
   
   console.log(cart)
 
@@ -23,17 +29,9 @@ const Header = ({ cart, itemCounter }) => {
         <ShoppingCartIcon />
     </Badge>
     </IconButton>
-    {cart[0] ?
-    cart.map(item => (
-      <div>
-        <p>{item.name}</p> 
-        <p>Price: ${item.price}</p>
-      </div>
-
-    ))
-    :
-    <p></p>
-  }
+    { showCart ?
+      <CartList /> : null
+    }
     </>
   )
 }
