@@ -42,8 +42,27 @@ function productReducer(state = initialState, action){
       return{
         ...state,
         selectedProducts: state.products.filter(product => product.category === action.payload)
-
       };
+    case 'ADD_TO_CART':
+      return{
+        ...state,
+        products: state.products.map(product => {
+          if (product.name === action.payload.name && product.inventory > 0){
+              product.inventory = product.inventory - 1
+          }
+          return product;
+        })
+      };
+    case 'REMOVE_FROM_CART':
+      return{
+        ...state,
+        products: state.products.map(product => {
+          if (product.name === action.payload.name){
+              product.inventory = product.inventory + 1
+          }
+          return product;
+        })
+      }
       default:
         return state;
   }
@@ -54,6 +73,13 @@ export const changeProducts = (category) => {
     type: 'CHANGE',
     payload: category,
   };
-} ;
+};
+
+// export const decrementInventory = (product) => {
+//   return{
+//     type: 'ADD_TO_CART',
+//     payload: product,
+//   }
+// }
 
 export default productReducer;
