@@ -1,12 +1,15 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import cartReducer, { addToCart, removeFromCart } from '../../store/cart';
 
 
-function CartList({ cart }){
+function CartList(){
+
+  let cart = useSelector(state => state.cart)
+
   return(
     <>
-    {cart[0] ?
-      cart.map(item => (
+    {cart.cart[0] ?
+      cart.cart.map(item => (
         <div>
           <p>{item.name}</p> 
           <p>Price: ${item.price}</p>
@@ -21,10 +24,4 @@ function CartList({ cart }){
 }
 
 
-const mapStateToProps = ({ cart  }) => {
-  return{
-    cart: cart.cart
-  }
-}
-
-export default connect(mapStateToProps)(CartList)
+export default CartList

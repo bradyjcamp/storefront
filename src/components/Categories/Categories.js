@@ -6,7 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { asyncChangeCategory, changeCategory } from '../../store/categories.js';
+import { changeProducts }  from '../../store/products'
+import { asyncGetCategory, changeCategory } from '../../store/categories.js';
 
 
 
@@ -16,16 +17,18 @@ function CategoriesList() {
   const categories = useSelector(state => state.categories);
   
   useEffect(() => {
-    dispatch(asyncChangeCategory());
-  }, []);
+    dispatch(asyncGetCategory());
+  }, [dispatch]);
   
   const handleChangeCategory = (category) => {
     let action = changeCategory(category);
-    dispatch(action)
+    dispatch(action);
+    let selected = changeProducts(category);
+    dispatch(selected);
   }
 
   // console.log(activeCategory);
-  console.log(categories.categories[0]);
+  // console.log(categories.categories[0]);
 
   return(
 

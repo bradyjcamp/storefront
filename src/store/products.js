@@ -40,7 +40,12 @@ const initialState = {
 
 function productReducer(state = initialState, action){
   switch(action.type){
-    case 'CHANGE':
+    case 'GET_PRODUCTS':
+      return{
+        ...state,
+        products: action.payload,
+      };
+    case 'SELECTED':
       return{
         ...state,
         selectedProducts: state.products.filter(product => product.category === action.payload)
@@ -49,8 +54,8 @@ function productReducer(state = initialState, action){
       return{
         ...state,
         products: state.products.map(product => {
-          if (product.name === action.payload.name && product.inventory > 0){
-              product.inventory = product.inventory - 1
+          if (product.name === action.payload.name && product.inStock > 0){
+              product.inStock = product.inStock - 1
           }
           return product;
         })
@@ -60,7 +65,7 @@ function productReducer(state = initialState, action){
         ...state,
         products: state.products.map(product => {
           if (product.name === action.payload.name){
-              product.inventory = product.inventory + 1
+              product.inStock = product.inStock + 1
           }
           return product;
         })
@@ -70,25 +75,26 @@ function productReducer(state = initialState, action){
   }
 }
 
-export const changeProducts = () => async (dispatch, getState) => {
+export const changeProducts = (category) => {
+  return{
+    type: 'SELECTED',
+    payload: category,
+  };
+};
+
+export const asyncGetProducts = () => async (dispatch, getState) => {
   let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
 
-  dispatch(setProducts(response.data));
+  dispatch(setProducts(response.data.results));
 }
 
 export const setProducts = (data) => {
   return {
-    type: 'CHANGE',
+    type: 'GET_PRODUCTS',
     payload: data
   }
 }
 
-// export const changeProducts = (category) => {
-//   return{
-//     type: 'CHANGE',
-//     payload: category,
-//   };
-// };
 
 
 export default productReducer;
