@@ -7,30 +7,22 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { asyncGetProducts } from '../../store/products';
-import { addToCart, removeFromCart } from '../../store/cart'
+import { addToCart } from '../../store/cart'
 
 function ProductList(){
-  
+
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart);
   const products = useSelector(state => state.products)
-  
+  const cart = useSelector(state => state.cart)
   
   const handleAddToCart = (product) => {
    let action = addToCart(product);
    dispatch(action);
   }
   
-  const handleRemoveFromCart = (product) => {
-    let action = removeFromCart(product);
-    dispatch(action);
-  }
-  
   useEffect(() => {
     dispatch(asyncGetProducts());
   }, [dispatch]);
-
-  console.log(products);
  
   return(
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id="products">
@@ -41,12 +33,10 @@ function ProductList(){
             <Typography variant="body2" color="text.secondary">Price: ${product.price}</Typography>
             <Typography variant="body2" color="text.secondary">Inventory: {product.inStock}</Typography>
             <CardActions>
-              {product.inStock > 0 ? 
-              <Button onClick={() => handleAddToCart(product)}>Add to Cart</Button>:
+              {!cart.cart.includes(product) ? 
+              <Button onClick={() => handleAddToCart(product)}
+              >Add to Cart</Button>:
               <Button disabled> Add to Cart</Button>}
-              {cart.itemCounter === 0?
-              <Button disabled> Remove from Cart</Button> :
-              <Button onClick={() => handleRemoveFromCart(product)}>Remove from Cart</Button>}
             </CardActions>
           </CardContent>
         </Card>
@@ -55,8 +45,5 @@ function ProductList(){
     </Box>
   )
 }
-
-
-
 
 export default ProductList

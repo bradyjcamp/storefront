@@ -1,15 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box, Typography, Button, CardContent, CardActions, Card }  from '@mui/material';
 import { changeProducts }  from '../../store/products'
 import { asyncGetCategory, changeCategory } from '../../store/categories.js';
-
-
 
 function CategoriesList() {
 
@@ -31,8 +24,6 @@ function CategoriesList() {
   // console.log(categories.categories[0]);
 
   return(
-
-    // <p>Hello</p>
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}id="list">
       {categories.categories.length ?
       categories.categories[0].results.map(category => (

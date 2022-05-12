@@ -1,23 +1,17 @@
-import React from 'react';
-import { useState } from 'react';
-import { connect } from 'react-redux';
-import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Badge, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CartList from './SimpleCart/SimpleCart'
 
-
-const Header = ({ cart, itemCounter }) => {
+const Header = (props) => {
   
   const [showCart, setShowCart] = useState(false);
+  let cart = useSelector(state => state.cart)
   
   const handleClick = () => {
-  
     setShowCart(!showCart)
-  
   }
-  
-  // console.log(cart)
 
   return(
     <>
@@ -25,7 +19,7 @@ const Header = ({ cart, itemCounter }) => {
       <header>Brady's Store</header>
     </div>
     <IconButton onClick={() => handleClick()} aria-label="cart">
-    <Badge badgeContent={itemCounter} color="primary">
+    <Badge badgeContent={cart.itemCounter} color="primary">
         <ShoppingCartIcon />
     </Badge>
     </IconButton>
@@ -36,13 +30,4 @@ const Header = ({ cart, itemCounter }) => {
   )
 }
 
-const mapStateToProps = ({ cart }) => {
-  return{
-    itemCounter: cart.itemCounter,
-    cart: cart.cart
-  }
-}
-
-
-
-export default connect(mapStateToProps)(Header)
+export default Header

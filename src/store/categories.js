@@ -1,21 +1,7 @@
 import axios from 'axios';
 
 const initialState = {
-  categories: [
-
-    // {
-    //   id: 1,
-    //   normalizedName: 'outdoor-equipment',
-    //   displayName: 'Outdoor Equipment',
-    //   description: 'Outdoor Equipment for Any Outdoors Adventure',
-    // },
-    // {
-    //   id: 2,
-    //   normalizedName: 'clothing',
-    //   displayName: 'Clothing',
-    //   description: 'Clothing for All Outdoors Activities',
-    // },
-  ],
+  categories: [],
 
   activeCategory: '',
 };
