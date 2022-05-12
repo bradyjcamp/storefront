@@ -17,7 +17,7 @@ const Header = ({ cart, itemCounter }) => {
   
   }
   
-  console.log(cart)
+  // console.log(cart)
 
   return(
     <>
