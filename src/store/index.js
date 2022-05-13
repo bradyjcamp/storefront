@@ -14,6 +14,6 @@ let reducers = combineReducers({
 });
 
 export default function store(){
-  return createStore(reducers, composeWithDevTools(applyMiddleware(thunk, logger)));
+  return createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
 }

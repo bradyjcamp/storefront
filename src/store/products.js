@@ -35,7 +35,8 @@ const initialState = {
     //   inventory: 20
     // }
   ],
-  selectedProducts: []
+  selectedProducts: [],
+  productSelected: []
 }
 
 function productReducer(state = initialState, action){
@@ -69,7 +70,12 @@ function productReducer(state = initialState, action){
           }
           return product;
         })
-      }
+      };
+      case 'PRODUCT_VIEW':
+        return{
+          ...state,
+          productSelected: state.products.filter(product => product._id === action.payload)
+        };
       default:
         return state;
   }
@@ -81,6 +87,14 @@ export const changeProducts = (category) => {
     payload: category,
   };
 };
+
+export const displayProduct = (id) => {
+  return{
+    type: 'PRODUCT_VIEW',
+    payload: id,
+  };
+};
+
 
 export const asyncGetProducts = () => async (dispatch, getState) => {
   let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
