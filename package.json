@@ -1,8 +1,9 @@
 {
   "name": "storefront",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
   "main": "src/index.js",
-  "private": false,
   "homepage": "https://bradyjcamp.github.io/storefront/",
   "dependencies": {
     "@emotion/react": "^11.9.0",
