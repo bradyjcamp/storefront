@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Badge, IconButton } from '@mui/material';
+import { Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CartList from './SimpleCart/SimpleCart'
+import { Link } from 'react-router-dom';
+
 
 const Header = (props) => {
   
-  const [showCart, setShowCart] = useState(false);
+  // const [showCart, setShowCart] = useState(false);
   let cart = useSelector(state => state.cart)
   
-  const handleClick = () => {
-    setShowCart(!showCart)
-  }
+  // const handleClick = () => {
+  //   setShowCart(!showCart)
+  // }
 
   return(
     <>
-    <div id='header'>
-      <header>Brady's Store</header>
-    </div>
-    <IconButton onClick={() => handleClick()} aria-label="cart">
-    <Badge badgeContent={cart.itemCounter} color="primary">
-        <ShoppingCartIcon />
-    </Badge>
-    </IconButton>
-    { showCart ?
-      <CartList /> : null
-    }
+      <div id='header'>
+        <header>Brady's Store</header>
+      </div>
+      <Link to="/">Home</Link>
+      <Link to="/cart">
+        <Badge badgeContent={cart.itemCounter} color="primary">
+          <ShoppingCartIcon />
+        </Badge>
+      </Link>
     </>
   )
 }

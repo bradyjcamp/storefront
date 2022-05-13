@@ -69,7 +69,12 @@ function productReducer(state = initialState, action){
           }
           return product;
         })
-      }
+      };
+      case 'PRODUCT_VIEW':
+        return{
+          ...state,
+          selectedProducts: state.products.filter(product => product._id === action.payload)
+        };
       default:
         return state;
   }
@@ -81,6 +86,14 @@ export const changeProducts = (category) => {
     payload: category,
   };
 };
+
+export const displayProduct = (product) => {
+  return{
+    type: 'SELECTED',
+    payload: product,
+  };
+};
+
 
 export const asyncGetProducts = () => async (dispatch, getState) => {
   let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');

@@ -20,6 +20,7 @@ function CartList(){
         <div key={item._id}>
           <p>{item.name}</p> 
           <p>Price: ${item.price}</p>
+          <p>Quantity: {}</p>
           {cart.itemCounter === 0?
               <Button disabled> Remove from Cart</Button> :
               <Button onClick={() => handleRemoveFromCart(item)}>Remove from Cart</Button>}

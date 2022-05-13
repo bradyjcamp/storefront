@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { asyncGetProducts } from '../../store/products';
 import { addToCart } from '../../store/cart'
+import { displayProduct } from '../../store/products'
 
 function ProductList(){
 
@@ -19,24 +20,32 @@ function ProductList(){
    let action = addToCart(product);
    dispatch(action);
   }
+
+  //may need reworked in store
+  // const handleDisplayProduct = (product) => {
+  //   let action = displayProduct(product);
+  //   dispatch(action);
+  // }
   
   useEffect(() => {
     dispatch(asyncGetProducts());
   }, [dispatch]);
+
+  console.log(cart)
  
+
   return(
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id="products">
       {products.selectedProducts.map(product => (
         <Card sx={{ margin: "10px" }} raised key={product._id}>
           <CardContent>
             <Typography gutterBottom variant="h3">{product.name} </Typography>
-            <Typography variant="body2" color="text.secondary">Price: ${product.price}</Typography>
-            <Typography variant="body2" color="text.secondary">Inventory: {product.inStock}</Typography>
             <CardActions>
               {!cart.cart.includes(product) ? 
               <Button onClick={() => handleAddToCart(product)}
               >Add to Cart</Button>:
               <Button disabled> Add to Cart</Button>}
+              <Button>Product Details</Button>
             </CardActions>
           </CardContent>
         </Card>
