@@ -20,9 +20,6 @@ function CategoriesList() {
     dispatch(selected);
   }
 
-  // console.log(activeCategory);
-  // console.log(categories.categories[0]);
-
   return(
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}id="list">
       {categories.categories.length ?

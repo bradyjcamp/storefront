@@ -35,7 +35,8 @@ const initialState = {
     //   inventory: 20
     // }
   ],
-  selectedProducts: []
+  selectedProducts: [],
+  productSelected: []
 }
 
 function productReducer(state = initialState, action){
@@ -73,7 +74,7 @@ function productReducer(state = initialState, action){
       case 'PRODUCT_VIEW':
         return{
           ...state,
-          selectedProducts: state.products.filter(product => product._id === action.payload)
+          productSelected: state.products.filter(product => product._id === action.payload)
         };
       default:
         return state;
@@ -87,10 +88,10 @@ export const changeProducts = (category) => {
   };
 };
 
-export const displayProduct = (product) => {
+export const displayProduct = (id) => {
   return{
-    type: 'SELECTED',
-    payload: product,
+    type: 'PRODUCT_VIEW',
+    payload: id,
   };
 };
 

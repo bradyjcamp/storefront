@@ -6,9 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { asyncGetProducts } from '../../store/products';
+import { asyncGetProducts, displayProduct } from '../../store/products';
 import { addToCart } from '../../store/cart'
-import { displayProduct } from '../../store/products'
+import { Link } from 'react-router-dom';
 
 function ProductList(){
 
@@ -22,17 +22,15 @@ function ProductList(){
   }
 
   //may need reworked in store
-  // const handleDisplayProduct = (product) => {
-  //   let action = displayProduct(product);
-  //   dispatch(action);
-  // }
+  const handleDisplayProduct = (id) => {
+    let action = displayProduct(id);
+    dispatch(action);
+  }
   
   useEffect(() => {
     dispatch(asyncGetProducts());
   }, [dispatch]);
 
-  console.log(cart)
- 
 
   return(
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id="products">
@@ -45,7 +43,13 @@ function ProductList(){
               <Button onClick={() => handleAddToCart(product)}
               >Add to Cart</Button>:
               <Button disabled> Add to Cart</Button>}
-              <Button>Product Details</Button>
+ 
+              <Button onClick={() => handleDisplayProduct(product._id)}>
+                <Link to="/products">
+                Product Details
+                </Link>
+              </Button>
+
             </CardActions>
           </CardContent>
         </Card>
