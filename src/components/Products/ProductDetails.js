@@ -31,11 +31,11 @@ function ProductDetails(){
           <Typography variant="body2" color="text.secondary">Price: ${products.productSelected[0].price}</Typography>
           <Typography variant="body2" color="text.secondary">Inventory: {products.productSelected[0].inStock}</Typography>
           <CardActions>
-          {!cart.cart.includes(products.productSelected[0]) ? 
+          {!cart.cart.includes(products.productSelected[0]) && products.productSelected[0].inStock > 0 ? 
           <Button onClick={() => handleAddToCart(products.productSelected[0])}>
               <Link to="/checkout">BUY</Link>
           </Button> :
-          <Button disabled> ITEM IN CART ALREADY</Button>}
+          <Button disabled> ITEM IN CART ALREADY or OUT OF STOCK</Button>}
           <Button>
             <Link to="/">BACK</Link>
           </Button>

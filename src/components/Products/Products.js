@@ -39,7 +39,7 @@ function ProductList(){
           <CardContent>
             <Typography gutterBottom variant="h3">{product.name} </Typography>
             <CardActions>
-              {!cart.cart.includes(product) ? 
+              {!cart.cart.includes(product) && product.inStock > 0 ? 
               <Button onClick={() => handleAddToCart(product)}
               >Add to Cart</Button>:
               <Button disabled> Add to Cart</Button>}
