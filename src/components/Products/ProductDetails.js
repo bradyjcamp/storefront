@@ -37,7 +37,7 @@ function ProductDetails(){
           </Button> :
           <Button disabled> ITEM IN CART ALREADY or OUT OF STOCK</Button>}
           <Button>
-            <Link to="/">BACK</Link>
+            <Link to="/storefront">BACK</Link>
           </Button>
           </CardActions>
         </CardContent>
