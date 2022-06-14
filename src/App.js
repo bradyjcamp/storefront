@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/cart" element={<CartList />} />
             <Route path="/checkout" element={<CheckoutForm />} />
-            <Route path="/" element={[<CategoriesList />, <ProductList />]} />
+            <Route path="/storefront" element={[<CategoriesList />, <ProductList />]} />
             <Route path="/products" element={<ProductDetails />} />
           </Routes>
         <Footer />
