@@ -19,7 +19,7 @@ const Header = (props) => {
       <div id='header'>
         <header>Brady's Store</header>
       </div>
-      <Link to="/">Home</Link>
+      <Link to="/storefront">Home</Link>
       <Link to="/cart">
         <Badge badgeContent={cart.itemCounter} color="primary">
           <ShoppingCartIcon />
