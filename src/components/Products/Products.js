@@ -37,7 +37,7 @@ function ProductList(){
       {products.selectedProducts.map(product => (
         <Card sx={{ margin: "10px" }} raised key={product._id}>
           <CardContent>
-            <Typography gutterBottom variant="h3">{product.name} </Typography>
+            <Typography gutterBottom variant="h3">{product.name.toUpperCase()} </Typography>
             <CardActions>
               {!cart.cart.includes(product) && product.inStock > 0 ? 
               <Button onClick={() => handleAddToCart(product)}
