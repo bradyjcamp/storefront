@@ -26,7 +26,7 @@ function CategoriesList() {
       categories.categories[0].results.map(category => (
           <Card sx={{ margin: "10px" }} raised key={category._id}>
             <CardContent>
-            <Typography gutterBottom variant="h3">{category.name}</Typography>
+            <Typography gutterBottom variant="h3">{category.name.toUpperCase()}</Typography>
             <Typography variant="body2" color="text.secondary">{category.description}</Typography>
             </CardContent>
             <CardActions>
