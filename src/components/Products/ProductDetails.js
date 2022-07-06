@@ -26,8 +26,8 @@ function ProductDetails(){
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id="products">
       <Card sx={{ margin: "10px" }} raised key={products.productSelected[0]._id}>
         <CardContent>
-          <Typography gutterBottom variant="h3">{products.productSelected[0].name} </Typography>
-          <Typography gutterBottom variant="h5">PRODUCT DETAILS </Typography>
+          <Typography gutterBottom variant="h3">{products.productSelected[0].name.toUpperCase()} </Typography>
+          <Typography gutterBottom variant="h5">{products.productSelected[0].description}</Typography>
           <Typography variant="body2" color="text.secondary">Price: ${products.productSelected[0].price}</Typography>
           <Typography variant="body2" color="text.secondary">Inventory: {products.productSelected[0].inStock}</Typography>
           <CardActions>
