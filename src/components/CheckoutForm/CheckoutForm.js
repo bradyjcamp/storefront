@@ -79,9 +79,6 @@ const CheckoutForm = () => {
         <Form.Group className="mb-3" controlId="CVV">
           <Form.Control type="password" placeholder="CVV" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="Checkbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
         <Button variant="primary">
           Submit
         </Button>
