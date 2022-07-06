@@ -25,8 +25,7 @@ const CheckoutForm = () => {
   const handleCheckout = () => {
     setPurchaseComplete(true);
   }
-  console.log(purchaseComplete);
-
+  
   return (
     <>
       {
@@ -37,7 +36,9 @@ const CheckoutForm = () => {
           </div>
         ))
       }
+
       <h4>Total: ${handleTotalPrice(cart.cart).toFixed(2)}</h4>
+
     <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
     <Card sx={{ margin: "10px"}} >
       <Form>
@@ -45,27 +46,27 @@ const CheckoutForm = () => {
           <Form.Label>Billing Adress</Form.Label>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="Full Name" />
+          <Form.Control type="text" placeholder="Full Name" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="Address" />
+          <Form.Control type="text" placeholder="Address" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="City" />
+          <Form.Control type="text" placeholder="City" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="State" />
+          <Form.Control type="text" placeholder="State" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="Zip" />
+          <Form.Control type="text" placeholder="Zip" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
@@ -83,7 +84,7 @@ const CheckoutForm = () => {
           <Form.Control type="password" placeholder="Credit Card #" />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Control type="email" placeholder="Expiration --- mm/dd/yyy" />
+          <Form.Control type="text" placeholder="Expiration --- mm/dd/yyy" />
           <Form.Text className="text-muted">
           </Form.Text>
         </Form.Group>
