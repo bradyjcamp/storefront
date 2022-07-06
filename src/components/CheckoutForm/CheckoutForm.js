@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import { Box, Card }  from '@mui/material';
@@ -7,7 +7,13 @@ import { Box, Card }  from '@mui/material';
 
 const CheckoutForm = () => {
 
+  //state for displaying message after pressing submit in checkout
+  const [purchaseComplete, setPurchaseComplete] = useState(false);
+
+  //brings in cart state from redux to display list of items in cart
   let cart = useSelector((state) => state.cart);
+
+  //function for added total price in checkout
   const handleTotalPrice = (arr) => {
     let total = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -15,6 +21,11 @@ const CheckoutForm = () => {
     }
     return total;
   };
+
+  const handleCheckout = () => {
+    setPurchaseComplete(true);
+  }
+  console.log(purchaseComplete);
 
   return (
     <>
@@ -79,7 +90,8 @@ const CheckoutForm = () => {
         <Form.Group className="mb-3" controlId="CVV">
           <Form.Control type="password" placeholder="CVV" />
         </Form.Group>
-        <Button variant="primary">
+        {purchaseComplete ? <h4>Your Order has been Submitted</h4> : <p></p>}
+        <Button variant="primary" onClick={() => handleCheckout()}>
           Submit
         </Button>
       </Form>
