@@ -5,19 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(152, 236, 236);
+  background-color: rgb(246, 205, 205);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
- #list{
-  background-color: bisque;
- }
 
- #products{
-  background-color: rgb(238, 117, 117);
- }
+#header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#simpleCart{
+  background-color: white;
+  width: fit-content;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px
+  
+  
+}
+
 
  
