@@ -40,7 +40,7 @@ const CheckoutForm = () => {
       <h4>Total: ${handleTotalPrice(cart.cart).toFixed(2)}</h4>
 
     <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-    <Card sx={{ margin: "10px"}} >
+    <Card sx={{ margin: "10px", padding: "2px", boxShadow: "1px 1px 4px"}} >
       <Form>
         <Form.Group>
           <Form.Label>Billing Adress</Form.Label>
@@ -75,7 +75,7 @@ const CheckoutForm = () => {
     </Box>
 
     <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-    <Card sx={{ margin: "10px"}} >
+    <Card sx={{ margin: "10px", padding: "2px", boxShadow: "1px 1px 4px"}} >
       <Form>
         <Form.Group>
           <Form.Label>Payment Details</Form.Label>
@@ -92,7 +92,7 @@ const CheckoutForm = () => {
           <Form.Control type="password" placeholder="CVV" />
         </Form.Group>
         {purchaseComplete ? <h4>Your Order has been Submitted</h4> : <p></p>}
-        <Button variant="primary" onClick={() => handleCheckout()}>
+        <Button  variant="primary" onClick={() => handleCheckout()}>
           Submit
         </Button>
       </Form>

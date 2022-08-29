@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import { removeFromCart } from "../../store/cart";
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
 
 function CartList() {
   let dispatch = useDispatch();
@@ -21,7 +22,7 @@ function CartList() {
   };
 
   return (
-    <>
+    <Box id='simpleCart'>
       {cart.cart[0] ? (
         cart.cart.map((item) => (
           <div key={item._id}>
@@ -48,7 +49,7 @@ function CartList() {
         <Link to="/checkout">CHECKOUT</Link>
       </Button>
       }
-    </>
+    </Box>
   );
 }
 
